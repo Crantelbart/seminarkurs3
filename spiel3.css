@@ -36,7 +36,7 @@ body {
 	background-color: rebeccapurple;
 	position: relative;  /* Ermöglicht Positionierung mit top/left */
 	top: 150px;         /* Abstand vom oberen Rand des Spielcontainers */
-	background-image: url("bilder/laufen.png");
+	/*background-image: url("bilder/laufen.png");*/
 }
 
 /* Sprung-Animation-Klasse */
