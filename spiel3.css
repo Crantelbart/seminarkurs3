@@ -1,0 +1,71 @@
+/* Universal-Selektor: Setzt Margin und Padding für ALLE Elemente zurück */
+* {
+	margin: 0;
+	padding: 0;
+}
+
+:root {
+	--speed: 3500ms
+}
+
+/* Grundlegende Layout-Einstellungen für HTML und Body */
+html, body {
+	height: 100%;  /* Volle Höhe des Viewports */
+	width: 100%;   /* Volle Breite des Viewports */
+}
+
+/* Body-Layout mit Flexbox */
+body {
+	display: flex;
+	justify-content: center;  /* Zentriert horizontal */
+	align-items: center;      /* Zentriert vertikal */
+}
+
+/* Spielcontainer-Stile */
+#game {
+	width: 500px;
+	height: 200px;
+	border: 1px solid black;
+	overflow: hidden;  /* Versteckt alles, was außerhalb des Containers ist */
+}
+
+/* Character-Stile */
+#character {
+	width: 20px;
+	height: 50px;
+	background-color: rebeccapurple;
+	position: relative;  /* Ermöglicht Positionierung mit top/left */
+	top: 150px;         /* Abstand vom oberen Rand des Spielcontainers */
+	background-image: url("bilder/laufen.png");
+}
+
+/* Sprung-Animation-Klasse */
+.animate {
+	animation: jump 500ms infinite;  /* Endlose Sprunganimation */
+	background-color: aqua !important;  /* Farbe ändert sich beim Springen */
+}
+
+/* Keyframes für Sprunganimation */
+@keyframes jump {
+	0% { top: 150px; }    /* Startposition */
+	30% { top: 100px; }   /* Sprung nach oben (30% der Animationszeit) */
+	70% { top: 100px; }   /* Haltephase oben (70% der Animationszeit) */
+	100% { top: 150px; }  /* Rückkehr zur Startposition */
+}
+
+/* Block-Stile (Hindernis) */
+#block {
+	width: 20px;
+	height: 20px;
+	background-color: red;
+	position: relative;
+	top: 130px;          /* Position im Spielcontainer */
+	left: 480px;         /* Startposition rechts */
+	animation: block var(--speed) infinite linear;  /* Endlose Block-Animation */
+}
+
+/* Keyframes für Blockanimation */
+@keyframes block {
+	0% { left: 480px; }  /* Start rechts */
+	100% { left: -40px; } /* Ende links (außerhalb des sichtbaren Bereichs) */
+}
